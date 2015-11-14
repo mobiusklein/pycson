@@ -29,7 +29,7 @@ def isfinite(x):
 identifier_pattern = re.compile(ur"^[a-z_$][a-z0-9_$]*$", re.IGNORECASE)
 
 
-def stringify(data, indent=2):
+def encode(data, indent=2):
     if data is None or callable(data):
         return None
     if isinstance(indent, basestring):
