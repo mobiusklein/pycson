@@ -3,7 +3,7 @@ import json
 from numbers import Number
 from math import floor, isinf
 
-SPACES = " " * 10
+SPACES = u" " * 10
 
 
 try:
@@ -19,15 +19,7 @@ except:
 
 
 def newline_wrap(s):
-    return "\n%s\n" % s
-
-
-def is_dict(x):
-    return isinstance(x, dict)
-
-
-def is_undefined(x):
-    return x is None
+    return u"\n%s\n" % s
 
 
 def isfinite(x):
@@ -37,11 +29,8 @@ def isfinite(x):
 identifier_pattern = re.compile(ur"^[a-z_$][a-z0-9_$]*$", re.IGNORECASE)
 
 
-is_function = callable
-
-
 def stringify(data, indent=2):
-    if is_undefined(data) or is_function(data):
+    if data is None or callable(data):
         return None
     if isinstance(indent, basestring):
         indent = indent[0:10]
